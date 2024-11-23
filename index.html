@@ -1,54 +1,143 @@
 <!doctype html>
 <html lang="en" class="dark">
+
 <head>
   <meta charset="UTF-8" />
   <title>三维页面</title>
   <meta name="description" content="" />
   <meta name="keywords" content="" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" type="image/svg+xml" href="https://z2586300277.github.io/three-cesium-examples/files/site/logo.svg" />
+  <link rel="icon" type="image/svg+xml"
+    href="https://z2586300277.github.io/three-cesium-examples/files/site/logo.svg" />
   <script>  window.FIX_HOST = 'https://z2586300277.github.io/three-cesium-examples/'</script>
   <script type="module" src="https://z2586300277.github.io/three-cesium-examples/config/config.js"></script>
-  <link rel="stylesheet" crossorigin href="https://z2586300277.github.io/three-cesium-examples/assets/three-cesium-examples.css">
+  <link rel="stylesheet" crossorigin
+    href="https://z2586300277.github.io/three-cesium-examples/assets/three-cesium-examples.css">
 </head>
+
 <body>
   <div id="app"></div>
   <script type="module">
+
+    // 你的本机 host
     const MY_HOST = (window.origin + window.location.pathname).replace(/\/index.html$/, '/')
+
+    // 案例配置
     const examples = {
+
+      // ThreeJS 案例
       threeExamples: [
         {
           pid: 'userExamples',
           name: '分布式案例',
           children: [
-              {
-                  id: 'createScene',
-                  name: '创建场景',
-                  tag: '本地',
-                  author: 'z2586300277',
-                  codeUrl: MY_HOST + '/threeExamples/createScene.js',
-                  image: MY_HOST + '/threeExamples/createScene.jpg',
-              },
-              {
-                  id: 'online',
-                  name: '加载了其他仓库的案例',
-                  tag: '线上-#154fff',
-                  author: 'z2586300277',
-                  codeUrl: 'https://z2586300277.github.io/three-cesium-examples/threeExamples/shader/chinaFlag.js',
-                  image : 'https://z2586300277.github.io/three-cesium-examples/threeExamples/shader/chinaFlag.jpg'
-              },
-            ]
+            {
+              id: 'createScene',
+              name: '创建场景',
+              tag: '本地资源',
+              author: 'z2586300277',
+              codeUrl: MY_HOST + '/threeExamples/createScene.js',
+              image: MY_HOST + '/threeExamples/createScene.jpg',
+            },
+            {
+              id: 'online',
+              name: '加载了其他仓库的案例',
+              tag: '远程调用-#154fff',
+              author: 'z2586300277',
+              codeUrl: 'https://z2586300277.github.io/three-cesium-examples/threeExamples/shader/chinaFlag.js',
+              image: 'https://z2586300277.github.io/three-cesium-examples/threeExamples/shader/chinaFlag.jpg'
+            },
+          ]
         }
       ],
-      cesiumExamples: [],
-      githubExamples: []
+
+      // CesiumJS 案例
+      cesiumExamples: [
+        {
+          pid: 'expand',
+          name: '扩展功能',
+          children: [
+            {
+              id: 'echartsFlyLine',
+              name: 'echarts飞线',
+              author: 'z2586300277',
+              tag: '分布调用',
+              codeUrl: HOST + 'cesiumExamples/expand/echartsFlyLine.js',
+              image: 'https://z2586300277.github.io/three-editor/src/codes/cesiumjs/basic/flyCharts.jpg',
+              inject: {
+                src: [FILE_HOST + "js/echarts490.min.js"]
+              },
+              meta: {
+                title: 'echarts飞线',
+                keywords: 'cesium.js,echarts飞线',
+                description: 'cesium 结合 echarts 创建美丽的动态流动飞线'
+              }
+            },
+            {
+              id: 'heatMap',
+              name: '热力图',
+              author: 'z2586300277',
+              tag: '远程引用',
+              codeUrl: HOST + 'cesiumExamples/expand/heatMap.js',
+              image: 'https://z2586300277.github.io/three-editor/src/codes/cesiumjs/basic/heatMap.jpg',
+              meta: {
+                title: '热力图',
+                keywords: 'cesium.js,热力图',
+                description: 'cesium 结合 热力图'
+              }
+            }
+          ]
+        },
+      ],
+
+      // Github 案例
+      githubExamples: [
+        {
+          pid: 'other',
+          name: '其他资源',
+          children: [
+            {
+              id: 'kallkago_su7',
+              tag: '热门-#5f9be3',
+              tip: 'SU7车展示案例，使用React+Three.js开发',
+              name: 'su7-R3f',
+              author: 'KallkaGo',
+              openUrl: 'https://z2586300277.github.io/show-site/su7_demo/',
+              githubUrl: 'https://github.com/KallkaGo/su7-demo',
+              image: HOST + 'threeExamples/openSource/kallkago_su7.jpg'
+            },
+            {
+              id: 'z2586300277_3d_editor',
+              tag: '编辑器-#795cddba',
+              tip: '使用three.js开发的低代码组态易用的编辑器',
+              name: '低代码组态编辑器',
+              author: 'z2586300277',
+              openUrl: 'https://z2586300277.github.io/three-editor/dist/#/editor',
+              githubUrl: 'https://github.com/z2586300277/three-editor',
+              image: FILE_HOST + 'images/editor.jpg',
+              links: [
+                {
+                  name: '📖CSDN',
+                  url: 'https://blog.csdn.net/guang2586/article/details/142910241'
+                }
+              ]
+            }
+          ]
+        }
+      ]
+
     }
+
+    // 赋值
     window.THREE_CESIUM_NAVIGATION.forEach((item) => {
-      if (item.name ==='CesiumJS') item.examples = examples.cesiumExamples
+      if (item.name === 'CesiumJS') item.examples = examples.cesiumExamples
       else if (item.name === 'ThreeJS') item.examples = examples.threeExamples
       else if (item.name === 'Github') item.examples = examples.githubExamples
     })
+
   </script>
-  <script type="module" crossorigin src="https://z2586300277.github.io/three-cesium-examples/assets/three-cesium-examples.js"></script>
+  <script type="module" crossorigin
+    src="https://z2586300277.github.io/three-cesium-examples/assets/three-cesium-examples.js"></script>
 </body>
+
 </html>
