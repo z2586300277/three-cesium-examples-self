@@ -1,4 +1,6 @@
-# 🏠 three-cesium-examples 分布式仓库 线上仓库互相引用案例
+# 🏠 three-cesium-examples 分布式仓库 
+
+### 实现n个仓库 增加案例配置 就可以互相引用对方的资源案例 在线运行
 
 - 调试可自行启动端口指向 index.html
 
