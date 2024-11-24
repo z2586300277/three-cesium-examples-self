@@ -1,4 +1,4 @@
-# 🏠 three-cesium-examples 分布式仓库
+# 🏠 three-cesium-examples 分布式仓库 线上仓库互相引用案例
 
 - 调试可自行启动端口指向 index.html
 
