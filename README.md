@@ -4,17 +4,17 @@
 
 - 调试可自行启动端口指向 index.html
 
-- github page 搭建  => 创建仓库 => 页面流程 => setting => pages => Build and deployment => source (depoly from a branch) => branch 选择对应分支
+- github page => 仓库 => 流程 => setting => pages => Build and deployment => source (depoly from a branch) => branch 选择对应分支
 
 - 架构设计是以请求资源形式访问代码,所以如 codeUrl image, 等资源信息不局限于存储在 本仓库中，例如存储在你自己的服务器，然后url 访问到你的资源地址即可。
 
-- 注 由于 github 访问限制 http 会被自动禁止, 建议 也搭建自己得github page ,使用 github 充当自己的资源服务器。
-
-- 本地新增 可参照 初始案例
-
 - 你的页面访问 https://xxxxxx.github.io/xxxxxx/
 
+- 本地新增 可参照 初始案例, 引用远程可参考其他的案例配置
+
 - 资源互通 如加载其他仓库的案例
+
+- 详情参照代码
 
 ```js 
 {
